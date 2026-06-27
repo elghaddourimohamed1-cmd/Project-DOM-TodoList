@@ -103,7 +103,7 @@ if (convertToArray) {
       completedBotton.style.color = "#f2e8cf";
     }
     completedBotton.addEventListener("click", () => {
-      element.completed = !element.completed; // Toggle state (true/false)
+      element.completed = !element.completed;
       if (element.completed) {
         creatInput.style.textDecoration = "line-through";
         creatInput.style.opacity = "0.5";
