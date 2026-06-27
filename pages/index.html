@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Dom</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+        <div class="container">
+        <header>
+            <div class="headding-fname">
+                <h1>My Daily Tasks</h1> 
+                <input type="text" id="input-fname" placeholder="Add Your Full Name">
+            </div>
+            <div class="form-containe" id="task-form">
+                <form action="" id="task-form">
+                    <input type="text" id="task-input" placeholder="What are your tasks for today?">
+                    <input type="submit" id="task-submit" value="Add">
+                </form>
+                <button type="submit" id="clearAllBtn">Clear</button>
+
+            </div>
+        </header>
+        <section class="task-stats">
+            <div class="stat-box">
+                <span class="stat-label">Total Tasks:</span>
+                <span id="total" class="stat-count T-colorstat">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label C-colorstat-title">Completed:</span>
+                <span id="completed-count" class="stat-count C-colorstat">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label I-colorstat-title">Incomplete:</span>
+                <span id="incomplete-count" class="stat-count I-colorstat">0</span>
+            </div>
+        </section>
+        <main>
+            <section class="task-list">
+                <div id="tasks">
+                </div>   
+            </section>
+        </main>
+    </div>
+    <script src="../javascript/javascript.js"></script>
+</body>
+</html>
