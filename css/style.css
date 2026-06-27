@@ -191,7 +191,7 @@ main{
     transition: 0.4s;
 }
 #tasks .task .content .text:not(:read-only){
-    color: var(--lightgreen);
+    color: #ff9c27;
 }
 #tasks .task .actions{
     display: flex;
@@ -231,7 +231,49 @@ main{
     align-items: center;
     color: #00c78a
 }
-
 .strike {
     text-decoration: line-through;
+}
+.task.dragging {
+    opacity: 0.4;
+    border: 2px dashed #00c78a;
+    background-color: #504f47 !important;
+}
+.task {
+    cursor: grab;
+}
+.task:active {
+    cursor: grabbing;
+}
+
+
+
+.drag-handle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #a3a299; 
+    padding: 0 10px;
+    cursor: grab;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    margin-left: -30px;
+}
+
+.drag-handle:hover {
+    color: #00c78a; 
+}
+
+.drag-handle:active {
+    cursor: grabbing; 
+}
+
+.task {
+    display: flex;
+    align-items: center; 
+    position: relative;
+}
+
+.task .content {
+    flex-grow: 1; 
 }

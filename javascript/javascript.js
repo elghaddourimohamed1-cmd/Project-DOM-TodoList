@@ -22,8 +22,8 @@ function updateStats() {
     let incompleteTasks = totalTasks - completedTasks;
     if (Tcolorstat) Tcolorstat.textContent = totalTasks;
     if (Ccolorstat) Ccolorstat.textContent = completedTasks;
-    if (Icolorstat) Icolorstat.textContent = incompleteTasks;   
-    counting = totalTasks; 
+    if (Icolorstat) Icolorstat.textContent = incompleteTasks;  
+    counting = totalTasks;
 }
 
 let savedFullName = localStorage.getItem("FullNameSaved") || "";
@@ -56,7 +56,20 @@ if (convertToArray) {
 
     let divTask = document.createElement("div");
     divTask.classList.add("task");
+    divTask.setAttribute("draggable", "true");
     tsk.appendChild(divTask);
+    divTask.addEventListener("dragstart", () => {
+    divTask.classList.add("dragging");
+    });
+    divTask.addEventListener("dragend", () => {
+        divTask.classList.remove("dragging");
+        saveNewOrder();
+    });
+
+    let dragHandle = document.createElement("div");
+    dragHandle.classList.add("drag-handle");
+    dragHandle.innerHTML = `<svg fill="#f2e8cf" xmlns="http://www.w3.org/2000/svg" width="50px" height="64px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M20,4c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,4,20,4z M32,4c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,4,32,4z M20,16c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,16,20,16z M32,16c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,16,32,16z M20,28c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,28,20,28z M32,28c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,28,32,28z M20,40c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,40,20,40z M32,40c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,40,32,40z"></path> </g> </g></svg>`;
+    divTask.appendChild(dragHandle);
 
     let taskContent = document.createElement("div");
     taskContent.classList.add("content");
@@ -103,7 +116,7 @@ if (convertToArray) {
       completedBotton.style.color = "#f2e8cf";
     }
     completedBotton.addEventListener("click", () => {
-      element.completed = !element.completed;
+      element.completed = !element.completed; // Toggle state (true/false)
       if (element.completed) {
         creatInput.style.textDecoration = "line-through";
         creatInput.style.opacity = "0.5";
@@ -170,10 +183,23 @@ form.addEventListener("submit", (e) => {
 
     let divTask = document.createElement("div");
     divTask.classList.add("task");
+    divTask.setAttribute("draggable", "true");
     divTask.style.backgroundColor = "#727167";
     // tsk.appendChild(divTask);
     // change order where new tasks go to the top of the list
     tsk.prepend(divTask);
+        divTask.addEventListener("dragstart", () => {
+    divTask.classList.add("dragging");
+    });
+    divTask.addEventListener("dragend", () => {
+        divTask.classList.remove("dragging");
+        saveNewOrder();
+    });
+
+    let dragHandle = document.createElement("div");
+    dragHandle.classList.add("drag-handle");
+    dragHandle.innerHTML = `<svg fill="#f2e8cf" xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M20,4c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,4,20,4z M32,4c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,4,32,4z M20,16c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,16,20,16z M32,16c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,16,32,16z M20,28c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,28,20,28z M32,28c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,28,32,28z M20,40c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,40,20,40z M32,40c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,40,32,40z"></path> </g> </g></svg>`;
+    divTask.appendChild(dragHandle);
 
     let taskContent = document.createElement("div");
     taskContent.classList.add("content");
@@ -252,7 +278,7 @@ form.addEventListener("submit", (e) => {
         tsk.removeChild(divTask);
         // tasks = tasks.filter((targetToRemove) => targetToRemove.text !== element.text,);
         // console.log(element);
-        let targetIndex = tasks.indexOf(taskObject); 
+        let targetIndex = tasks.indexOf(taskObject);
         tasks.splice(targetIndex, 1);
         localStorage.setItem("tasksSaved", JSON.stringify(tasks));
         updateStats();
@@ -290,3 +316,34 @@ clearBtn.addEventListener("click", () => {
 //   counting = 0;
 //   counter.textContent = `Total Tasks: ${counting}`;
 });
+
+
+tsk.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    let draggingItem = document.querySelector(".dragging");
+    if (!draggingItem) return;
+    let siblings = [...tsk.querySelectorAll(".task:not(.dragging)")];
+    let nextSibling = siblings.find(sibling => {
+        let box = sibling.getBoundingClientRect();
+        return e.clientY <= box.top + box.height / 2;
+    });
+    if (nextSibling) {
+        tsk.insertBefore(draggingItem, nextSibling);
+    } else {
+        tsk.appendChild(draggingItem);
+    }
+});
+function saveNewOrder() {
+    let updatedTasks = [];
+    let currentTaskElements = tsk.querySelectorAll(".task");
+    currentTaskElements.forEach(taskEl => {
+        let textValue = taskEl.querySelector(".text").value;
+                let matchedObject = tasks.find(t => t.text === textValue); 
+        if (matchedObject) {
+            updatedTasks.push(matchedObject);
+        }
+    });
+    tasks = updatedTasks;
+    localStorage.setItem("tasksSaved", JSON.stringify(tasks));
+}
+
