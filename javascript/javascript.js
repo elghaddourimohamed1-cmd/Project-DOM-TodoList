@@ -169,8 +169,12 @@ form.addEventListener("submit", (e) => {
   let userFname = fname.value.trim();
   e.preventDefault();
   if (userInput === "") {
-    // warning.style.display = 'block';
+    warning.style.display = 'block';
+    warning.style.color = '#ed143d';
+    warning.style.marginTop = '20px';
+    warning.textContent = "Please fill out your task field before adding!"; 
   } else {
+    warning.style.display = 'none'; 
     let today = new Date();
     let formattedDate = today.toLocaleDateString();
 
