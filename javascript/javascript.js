@@ -14,6 +14,7 @@ let taskContent = document.createElement("div");
 let Tcolorstat = document.querySelector('.T-colorstat');
 let Ccolorstat = document.querySelector('.C-colorstat');
 let Icolorstat = document.querySelector('.I-colorstat');
+let themeToggleBtn = document.querySelector("#themeToggleBtn");
 
 
 function updateStats() {
@@ -68,7 +69,7 @@ if (convertToArray) {
 
     let dragHandle = document.createElement("div");
     dragHandle.classList.add("drag-handle");
-    dragHandle.innerHTML = `<svg fill="#f2e8cf" xmlns="http://www.w3.org/2000/svg" width="50px" height="64px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M20,4c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,4,20,4z M32,4c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,4,32,4z M20,16c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,16,20,16z M32,16c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,16,32,16z M20,28c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,28,20,28z M32,28c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,28,32,28z M20,40c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,40,20,40z M32,40c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,40,32,40z"></path> </g> </g></svg>`;
+    dragHandle.innerHTML = `<svg fill="#504d46" xmlns="http://www.w3.org/2000/svg" width="50px" height="64px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M20,4c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,4,20,4z M32,4c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,4,32,4z M20,16c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,16,20,16z M32,16c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,16,32,16z M20,28c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,28,20,28z M32,28c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,28,32,28z M20,40c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,40,20,40z M32,40c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,40,32,40z"></path> </g> </g></svg>`;
     divTask.appendChild(dragHandle);
 
     let taskContent = document.createElement("div");
@@ -106,7 +107,7 @@ if (convertToArray) {
     taskDate.classList.add("task-date");
     taskDate.textContent = ` ${element.date} `;
     taskDate.style.fontSize = "0.8em";
-    taskDate.style.color = "#f2e8cf";
+    taskDate.style.color = "#504d46";
     taskContent.appendChild(taskDate);
 
     if (element.completed) {
@@ -198,7 +199,7 @@ form.addEventListener("submit", (e) => {
 
     let dragHandle = document.createElement("div");
     dragHandle.classList.add("drag-handle");
-    dragHandle.innerHTML = `<svg fill="#f2e8cf" xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M20,4c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,4,20,4z M32,4c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,4,32,4z M20,16c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,16,20,16z M32,16c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,16,32,16z M20,28c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,28,20,28z M32,28c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,28,32,28z M20,40c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,40,20,40z M32,40c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,40,32,40z"></path> </g> </g></svg>`;
+    dragHandle.innerHTML = `<svg fill="#504d46" xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M20,4c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,4,20,4z M32,4c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,4,32,4z M20,16c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,16,20,16z M32,16c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,16,32,16z M20,28c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,28,20,28z M32,28c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,28,32,28z M20,40c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S17.8,40,20,40z M32,40c2.2,0,4,1.8,4,4 s-1.8,4-4,4s-4-1.8-4-4S29.8,40,32,40z"></path> </g> </g></svg>`;
     divTask.appendChild(dragHandle);
 
     let taskContent = document.createElement("div");
@@ -238,7 +239,7 @@ form.addEventListener("submit", (e) => {
     taskDate.classList.add("task-date");
     taskDate.textContent = ` ${formattedDate} `;
     taskDate.style.fontSize = "0.8em";
-    taskDate.style.color = "#f2e8cf";
+    taskDate.style.color = "#504d46";
     taskContent.appendChild(taskDate);
 
     completedBotton.addEventListener("click", () => {
@@ -346,4 +347,19 @@ function saveNewOrder() {
     tasks = updatedTasks;
     localStorage.setItem("tasksSaved", JSON.stringify(tasks));
 }
-
+// dark mode style start 
+let savedTheme = localStorage.getItem("ThemeSaved") || "light";
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+}
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("ThemeSaved", "dark");
+        } else {
+            localStorage.setItem("ThemeSaved", "light");
+        }
+    });
+}
+// dark mode style end
