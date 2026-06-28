@@ -110,11 +110,13 @@ body {
 .container {
     background-color: var(--container-bg);
 }
+.username-toggledark {
+    display: flex;
+}
 input.text {
     color: var(--task-input-color);
 }
 .theme-toggle {
-    margin-top: 10px;
     background: none;
     border: none;
     cursor: pointer;
@@ -137,6 +139,13 @@ body.dark-mode .theme-toggle .moon-icon { display: none; }
     gap: 10px;
     width: 100%;
 }
+.input-and-submit {
+    display: flex;
+    width: 100%;
+}
+.user-input-task {
+    width: 100%;
+}
 input,button{
     appearance: none;
     border: none;
@@ -153,7 +162,7 @@ input,button{
     margin-right: 1rem;
     color: var(--primarytext);
     font-size: 1.25rem;
-    width: 80%;
+    width: 98%;
 }
 #task-input::placeholder{
     color: var(--primarytext)
@@ -360,4 +369,54 @@ main{
 
 .task .content {
     flex-grow: 1; 
+}
+
+/* responsivity  */
+
+@media screen and (max-width: 426px) {
+    .headding-fname {
+    flex-direction: column-reverse;
+}
+.headding-fname {
+    align-items: center;
+}
+#input-fname {
+    font-size: 1rem;
+    text-align: right;
+}
+/* #task-input {
+    font-size: 1.06rem;
+} */
+.input-and-submit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+header h1 {
+    font-size: 2rem;
+}
+#task-input {
+    width: 100%;
+    font-size: 1.06rem;
+}
+#task-form {
+    flex-direction: column;
+}
+.actions .Edit span{
+    display: none;
+}
+.actions .Delete span{
+    display: none;
+}
+.actions .Completed span{
+    display: none;
+}
+#tasks .task .actions {
+    margin: 0 -1.5rem;
+    flex-direction: column-reverse;
+}
+.drag-handle {
+    padding: 0 0px;
+    margin-left: -25px;
+}
 }
